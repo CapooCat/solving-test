@@ -1,4 +1,6 @@
-# React + TypeScript + Vite
+# Solving Test => React + TypeScript + Vite
+
+### You can use this link: https://tranthaidat-test.netlify.app/ to access and review or you can setup and run on local
 
 Setup and installation:
 
