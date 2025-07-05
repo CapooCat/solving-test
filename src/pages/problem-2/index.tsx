@@ -76,14 +76,6 @@ const PageProblemTwo = () => {
                   </Form.Item>
                 </Col>
 
-                <Col span={20}>
-                  <FormInputAmount />
-                </Col>
-
-                <Col span={4} className="mt-[31px]">
-                  <ButtonMax />
-                </Col>
-
                 <Col span={24}>
                   <Form.Item<TForm>
                     label="Exchange Currency"
@@ -94,12 +86,24 @@ const PageProblemTwo = () => {
                   </Form.Item>
                 </Col>
 
+                <Col span={20}>
+                  <FormInputAmount />
+                </Col>
+
+                <Col span={4} className="mt-[31px]">
+                  <ButtonMax />
+                </Col>
+
                 <Col span={24}>
                   <ExchangeAmountPreview />
                 </Col>
 
                 <Col span={24} className="!flex gap-2.5">
-                  <Button type="primary" onClick={() => form.resetFields()} disabled={exchange.isPending}>
+                  <Button
+                    type="primary"
+                    onClick={() => form.resetFields(["amount", "currency", "currencyExchange"])}
+                    disabled={exchange.isPending}
+                  >
                     Clear
                   </Button>
 
