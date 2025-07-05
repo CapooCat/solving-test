@@ -6,7 +6,7 @@ type TProps = {
 
 const CodeLogs = ({ logs }: TProps) => {
   return (
-    <Flex vertical className="w-full rounded-2xl !p-4 h-full" style={{ backgroundColor: "#141414" }}>
+    <Flex vertical className="w-full rounded-2xl !p-4 h-full !border border-[#303030] !bg-[#141414]">
       {logs.map((log, index) => (
         <Typography key={index}>{log}</Typography>
       ))}
