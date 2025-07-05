@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  @apply w-full h-full bg-gray-900;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
