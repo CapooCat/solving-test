@@ -13,7 +13,7 @@ const AppHeader = () => {
   };
 
   return (
-    <Header className="flex justify-center items-center !bg-gray-900">
+    <Header className="flex justify-center items-center !bg-transparent">
       <Segmented
         value={location.pathname == "/" ? ROUTE.PROBLEM_1.route : location.pathname}
         onChange={handleSelect}
