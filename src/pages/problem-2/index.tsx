@@ -1,8 +1,7 @@
 import { ROUTE } from "@/constant/route";
-import { Button, Card, Col, Flex, Form, message, Row, Typography } from "antd";
+import { Button, Card, Col, Divider, Flex, Form, message, Row, Typography } from "antd";
 import { useMutation } from "@tanstack/react-query";
 import { exchangeCurrency } from "./api/exchangeCurrency";
-import ExchangeAmountPreview from "./components/ExchangeAmountPreview";
 import type { TForm } from "./types/TForm";
 import CardTitle from "./components/CardTitle";
 import FormInputAmount from "./components/FormInputAmount";
@@ -11,6 +10,8 @@ import YourCurrencyWallet from "./components/YourCurrencyWallet";
 import { exchangeFromWallet } from "./utils/exchangeFromWallet";
 import FormSelectWalletCurrency from "./components/FormSelectWalletCurrency";
 import FormSelectExchangeCurrency from "./components/FormSelectExchangeCurrency";
+import FormInputExchange from "./components/FormInputExchange";
+import { IconTransferVertical } from "@tabler/icons-react";
 
 const PageProblemTwo = () => {
   const [form] = Form.useForm<TForm>();
@@ -62,7 +63,7 @@ const PageProblemTwo = () => {
         onSubmitCapture={(e) => e.preventDefault()}
         className="w-[90%] max-w-[800px]"
       >
-        <Card title={<CardTitle />} classNames={{ body: "!p-0" }}>
+        <Card title={<CardTitle />} classNames={{ body: "!p-0" }} className="!rounded-2xl">
           <Row>
             <Col md={16} sm={24} xs={24}>
               <Row gutter={[10, 16]} className="p-6">
@@ -76,6 +77,21 @@ const PageProblemTwo = () => {
                   </Form.Item>
                 </Col>
 
+                <Col span={20}>
+                  <FormInputAmount />
+                </Col>
+
+                <Col span={4}>
+                  <ButtonMax />
+                </Col>
+
+                <Col span={24}>
+                  <Flex className="justify-center">
+                    <Divider className="!my-2" />
+                    <IconTransferVertical className="bg-black p-2 size-10 rounded-full absolute self-center justify-self-center" />
+                  </Flex>
+                </Col>
+
                 <Col span={24}>
                   <Form.Item<TForm>
                     label="Exchange Currency"
@@ -86,29 +102,21 @@ const PageProblemTwo = () => {
                   </Form.Item>
                 </Col>
 
-                <Col span={20}>
-                  <FormInputAmount />
-                </Col>
-
-                <Col span={4} className="mt-[31px]">
-                  <ButtonMax />
-                </Col>
-
                 <Col span={24}>
-                  <ExchangeAmountPreview />
+                  <FormInputExchange />
                 </Col>
 
-                <Col span={24} className="!flex gap-2.5">
+                <Col span={24} className="!flex gap-2.5 mt-2">
+                  <Button type="primary" onClick={() => form.submit()} loading={exchange.isPending}>
+                    Exchange
+                  </Button>
+
                   <Button
-                    type="primary"
-                    onClick={() => form.resetFields(["amount", "currency", "currencyExchange"])}
+                    type="default"
+                    onClick={() => form.resetFields(["amount", "amountExchange", "currency", "currencyExchange"])}
                     disabled={exchange.isPending}
                   >
                     Clear
-                  </Button>
-
-                  <Button type="primary" onClick={() => form.submit()} loading={exchange.isPending}>
-                    Exchange
                   </Button>
                 </Col>
               </Row>

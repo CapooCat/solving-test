@@ -5,4 +5,5 @@ export type TForm = {
   currency?: TModelPrice;
   currencyExchange?: TModelPrice;
   amount?: number;
+  amountExchange?: number;
 };
