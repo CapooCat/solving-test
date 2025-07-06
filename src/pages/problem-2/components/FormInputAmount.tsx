@@ -35,7 +35,7 @@ const FormInputAmount = () => {
           min={0}
           placeholder="Enter amount"
           suffix={currency?.currency}
-          onChange={calculateAmountExchange}
+          onBlur={() => calculateAmountExchange()}
         />
       </Form.Item>
 

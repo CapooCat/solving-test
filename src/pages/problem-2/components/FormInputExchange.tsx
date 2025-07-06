@@ -13,7 +13,7 @@ const FormInputExchange = () => {
         <InputNumber
           className="!w-full"
           min={0}
-          onChange={calculateAmount}
+          onBlur={() => calculateAmount()}
           placeholder="Enter exchange amount"
           suffix={currencyExchange?.currency}
         />
