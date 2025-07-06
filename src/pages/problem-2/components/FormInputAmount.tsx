@@ -20,6 +20,10 @@ const FormInputAmount = () => {
           {
             required: true,
             message: "Please input the amount you want to exchange",
+            validator: (_, value) => {
+              if (value > 0) return Promise.resolve();
+              else return Promise.reject();
+            },
           },
           {
             message: "You don't have enough amount in your wallet",
